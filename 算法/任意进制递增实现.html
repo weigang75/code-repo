@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+
+ <BODY>
+  <script language="javascript">
+	var num = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z'];
+	var systemNum = 100; //进制数，最大不超过 num.length
+	if(systemNum > num.length){
+		systemNum=num.length;
+	}
+	var digit = 3; // 位数
+	var n = [];
+	for(var i=0;i<digit;i++){
+		n.push(0);
+	}
+	for(var i=0;i<100;i++){
+		for(var idx = 0; idx<n.length; idx++){
+			if(n[idx] >= systemNum){
+				n[idx]=0;
+				n[idx+1]++;// 进位
+			}else{
+				break;
+			}
+		}
+		var strNum="";
+		for(var idx=n.length-1; idx>=0; idx--){
+			strNum+=num[n[idx]];
+		}
+		console.log(i+")\t"+strNum);
+		n[0]++;
+	}
+  </script>
+ </BODY>
+</HTML>
